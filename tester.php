@@ -38,7 +38,7 @@ if( !isset($_POST['authMode']) ){
 
 ?>
 <div><label for="instId">instId</label>
-<input name="transId" value="<?= $_POST['instID'] ?>" /></div>
+<input name="instId" value="<?= $_POST['instId'] ?>" /></div>
 <div><label for="cartId">cartId</label>
 <input name="cartId" value="<?= $_POST['cartId'] ?>" /></div>
 <div><label for="desc">desc</label>
@@ -139,5 +139,22 @@ if( array_key_exists('withDelivery', $_POST) ){
 <input name="AVS" value="<?= $_POST['AVS'] ?>" /></div>
 <div><label for="ip">ip</label>
 <input name="ip" value="<?= $ip ?>" /></div>
+<h2>Custom Variables</h2>
+<?php
+
+foreach( $_POST as $k=>$v ){
+
+	if( strpos($k, 'C_') !== FALSE ){
+
+		?>
+<div><label for="<?= $k ?>"><?= $k ?></label>
+<input name="<?= $k ?>" value="<?= $v ?>" /></div>
+		<?php
+
+	}
+
+}
+
+?>
 <div><input type="submit" value="Submit"/></div>
 </body>
