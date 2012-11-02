@@ -26,7 +26,6 @@ for( $i = 0; $i < 10; $i++ ){
 
 }
 
-$ip = $_SERVER['REMOTE_ADDR'];
 $amountString = $_POST['currency'].$_POST['amount'];
 if( !isset($_POST['authMode']) ){
 
@@ -138,7 +137,7 @@ if( array_key_exists('withDelivery', $_POST) ){
 <div><label for="AVS">AVS</label>
 <input name="AVS" value="<?= $_POST['AVS'] ?>" /></div>
 <div><label for="ip">ip</label>
-<input name="ip" value="<?= $ip ?>" /></div>
+<input name="ip" value="<?= $_POST['ipAddress'] ?>" /></div>
 <h2>Custom Variables</h2>
 <?php
 
